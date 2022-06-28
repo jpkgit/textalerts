@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent">
+	<TableLayout android:id="@+id/tableLayout1"
+		android:layout_width="match_parent" android:layout_height="wrap_content">
+		<LinearLayout android:layout_height="wrap_content"
+			android:id="@+id/linearLayout1" android:layout_width="match_parent">
+			<ImageView android:id="@+id/imageView1" android:layout_height="wrap_content" android:src="@drawable/icon" android:layout_width="wrap_content"></ImageView>
+			<EditText android:id="@+id/editTextLocationName"
+				android:layout_height="wrap_content" android:text="Location Name"
+				android:layout_width="match_parent" android:singleLine="true"></EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout2"
+			android:layout_height="wrap_content" android:layout_width="match_parent"
+			android:orientation="horizontal">
+			<TextView android:id="@+id/textViewLatitude"
+				android:layout_height="wrap_content" android:text="Latitude: "
+				android:layout_width="wrap_content" android:visibility="invisible"></TextView>
+			<TextView android:text="Longitude: " android:id="@+id/textViewLongitude"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:visibility="invisible"></TextView>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout3"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:baselineAligned="true" android:orientation="vertical">
+			<TextView android:layout_width="wrap_content" android:id="@+id/textViewLocationSize"
+				android:layout_height="match_parent" android:text="Location size (radius): "></TextView>
+			<SeekBar android:max="1000" android:layout_height="wrap_content"
+				android:id="@+id/seekBarRadius" android:layout_width="match_parent"
+				android:progress="100"></SeekBar>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout4"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<TextView android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:visibility="invisible"
+				android:id="@+id/textView2" android:text="TextView"></TextView>
+			<Spinner android:id="@+id/spinnerSoundProfile"
+				android:layout_width="match_parent" android:layout_height="50dip"></Spinner>
+			<TextView android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:visibility="invisible"
+				android:id="@+id/textView3" android:text="TextView"></TextView>
+		</LinearLayout>
+		<LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout6" android:orientation="vertical" android:layout_width="wrap_content">
+			<Button android:id="@+id/buttonMapIt" android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_weight="1" android:text="Show Profile Location on Map"></Button>
+			<TextView android:visibility="invisible" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView4" android:text="TextView"></TextView>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout5"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+			<Button android:text="Save" android:id="@+id/buttonSave"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:layout_weight="1"></Button>
+			<Button android:text="Delete" android:layout_width="wrap_content"
+				android:id="@+id/buttonDelete" android:layout_weight="1"
+				android:layout_height="wrap_content"></Button>
+		</LinearLayout>
+	</TableLayout>
+</LinearLayout>

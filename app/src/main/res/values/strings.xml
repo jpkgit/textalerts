@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SafeText</string>
+    <string name="local_service_stopped">SafeText Service Stopped</string>
+    <string name="local_service_started">SafeText Service Started</string>
+    <string name="local_service_connected">SafeText Service connected</string>
+    <string name="local_service_disconnected">SafeText service disconnected</string>
+    <string name="local_service_label">SafeText Service Label</string>
+    <string name="text_alerts_tag">SafeText</string>
+    <string name="button_refresh">Refresh</string>
+    <string name="locaiton_view_tag">SafeText</string>
+    <string name="msg_saved_location_profile">Saved location profile.</string>
+    <string name="msg_failed_to_save_profile">Failed to save location profile. Are you in a cave?</string>
+    <string name="format_location">&quot;Location: &quot;</string>
+    <string name="accuracy">&quot;Accuracy: &quot;</string>
+    <string name="bqs_tag">SafeText</string>
+    <string name="bqs_provider_gps">gps</string>
+    <string name="bqs_service_started">SafeText Service Started.</string>
+    <string name="bqs_destroying_service">Destoying SafeText Service.</string>
+    <string name="bqs_results_error">Distance calculation failed.</string>
+    <string name="bqs_closest_profile_found">&quot;Closest profile found: &quot;</string>
+    <string name="bqs_updating_to">&quot;Updating sound profile to &quot;</string>
+    <string name="bqs_use_default">No profiles set for this area, switching to default.</string>
+    <string name="bqs_location_change_exception">&quot;Excepion when location change occured: &quot;</string>
+    <string name="bqs_set_ringer_to">&quot;Setting Ringer to: &quot;</string>
+    <string name="bqs_save_loc_exception">Exception in SaveCurrentLocationToService.</string>
+    <string name="bqs_profile_file_name">ProfileList.dat</string>
+    <string name="bqs_save_profiles_to_disk">Saved profiles to disk.</string>
+    <string name="bqs_save_profiles_to_disk_failed">&quot;Failed to save profiles to disk: &quot;</string>
+    <string name="bqs_failed_to_load_profiles">&quot;Could not load profiles from disk: &quot;</string>
+    <string name="bqs_set_ringer_to_failed">Failed to set ringer.</string>
+    <string name="bqs_destroying_service_failed">Failed to Destroy service.</string>
+    <string name="bqs_service_started_failed">Failed to start service.</string>
+    <string name="bqs_create_started_failed">Failed to call onCreate.</string>
+    <string name="profile_editor">Profile Editor</string>
+    <string name="bqs_save_profiles_to_disk_fail">&quot;Failed to save profile. Verify the name is unique.&quot;</string>
+    <string name="profileedit_failed_to_delete_profile">&quot;Failed to delete profile.&quot;</string>
+    <string name="profileedit_mapit">Show on Map</string>
+    <string name="set_alerts">Save</string>
+    <string name="alerts_number_1">###-###-####</string>
+</resources>
