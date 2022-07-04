@@ -39,7 +39,6 @@ public class SafeTextService extends Service
 	public MmsObserver mmsObserver = new MmsObserver();
 
 	private CountDownTimer NotifyPhoneStatusTimer;
-	
 
 
 	//
@@ -84,27 +83,7 @@ public class SafeTextService extends Service
 	public void PictureRecieved()
 	{
 		SmsManager sms = SmsManager.getDefault();
-		sms.sendTextMessage(SafeTextService.getServiceObject().GetFirstAlertsNumber(), null, "picture received", null, null);		
-		
-//  		Toast.makeText(getServiceObject(), "Picture recieved",
-//				Toast.LENGTH_LONG).show();
-  		
-//		new Thread(){ public void run() {
-//		  this.runOnUIThread(new Runnable(){
-//
-//              @Override
-//              public void run(){
-//                  try {
-//	
-//                  } catch (Exception e) {
-//
-//                  } 
-//             });
-//
-//		        }
-//		   }
-//		}.start();
-	
+		sms.sendTextMessage(SafeTextService.getServiceObject().GetFirstAlertsNumber(), null, "picture received", null, null);
 	}
 	
 	public void StartLocationUpdates()

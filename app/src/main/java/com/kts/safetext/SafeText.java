@@ -373,19 +373,4 @@ public class SafeText extends Activity
 		return eulaText.toString();
 		
 	}
-
-//	protected void onClickListViewItem(String name)
-//	{
-//		try
-//		{
-//			Intent intent = new Intent();
-//			intent.setClass(getApplicationContext(), SafeText.class);
-//			intent.putExtra("com.kts.bequiet.ProfileName", name);
-//			startActivity(intent);
-//		}
-//		catch (Exception ex)
-//		{
-//			Log.e(TAG, ex.getMessage());
-//		}
-//	}
 }
