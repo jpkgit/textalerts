@@ -34,6 +34,7 @@
     <string name="bqs_create_started_failed">Failed to call onCreate.</string>
     <string name="profile_editor">Profile Editor</string>
     <string name="bqs_save_profiles_to_disk_fail">&quot;Failed to save profile. Verify the name is unique.&quot;</string>
+    <string name="bqs_check_temp">&quot;Checking Temperature.&quot;</string>
     <string name="profileedit_failed_to_delete_profile">&quot;Failed to delete profile.&quot;</string>
     <string name="profileedit_mapit">Show on Map</string>
     <string name="set_alerts">Save</string>

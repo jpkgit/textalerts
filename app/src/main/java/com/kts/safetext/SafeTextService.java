@@ -19,6 +19,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Binder;
 import android.os.CountDownTimer;
 import android.os.IBinder;
@@ -26,7 +30,7 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
-public class SafeTextService extends Service
+public class SafeTextService extends Service implements SensorEventListener
 {
 	private static String TAG; 
 	private final IBinder mBinder = new LocalBinder();
@@ -39,6 +43,11 @@ public class SafeTextService extends Service
 	public MmsObserver mmsObserver = new MmsObserver();
 
 	private CountDownTimer NotifyPhoneStatusTimer;
+
+	private SensorManager mSensorManager;
+	private Sensor mTemperature;
+	private float lastBatteryTemp;
+	private int tempCounter;
 
 
 	//
@@ -289,6 +298,34 @@ public class SafeTextService extends Service
 		return profileList.iterator();
 	}
 
+	@Override
+	public void onSensorChanged(SensorEvent sensorEvent)
+	{
+		if (tempCounter++ < 100)
+			return;
+
+		float temperature = sensorEvent.values[0];
+		float delta = Math.abs(lastBatteryTemp - temperature);
+
+		if (delta > 1)
+		{
+			String message = "FALCON Battery Temperature: " + temperature;
+
+			Toast.makeText(this, "Sending" + message,
+					Toast.LENGTH_SHORT).show();
+			SmsManager sms = SmsManager.getDefault();
+			sms.sendTextMessage(SafeTextService.getServiceObject().GetFirstAlertsNumber(), null, message, null, null);
+		}
+
+		lastBatteryTemp = temperature;
+		tempCounter = 0;
+	}
+
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int i) {
+
+	}
+
 	//
 	// Added my own version of this. Consolidate this.
 	//
@@ -311,7 +348,14 @@ public class SafeTextService extends Service
 		{
 			TAG = "SafeText";
 			super.onCreate();
-			instance = this;			
+			instance = this;
+
+			mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+			lastBatteryTemp = 0;
+			tempCounter = 0;
+			List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_ALL);
+			mTemperature = list.get(11);
+			mSensorManager.registerListener(this, mTemperature, SensorManager.SENSOR_DELAY_NORMAL);
 		}
 		catch (Exception ex)
 		{
@@ -388,6 +432,7 @@ public class SafeTextService extends Service
 		{
 			serializeAlertsList();
 			Log.i(TAG, getString(R.string.bqs_destroying_service));
+			mSensorManager.unregisterListener(this);
 			instance = null;
 		}
 		catch (Exception ex)
@@ -568,7 +613,7 @@ public class SafeTextService extends Service
 			Log.e(TAG, "Faied to save alerts numbers " + e.getMessage() + Log.getStackTraceString(e));
 		}
 	}
-	
+
 	private void ProcessPeriodicStatusUpdates() {
 		try {			
 			// send update letting guardian know that SafeText is up and running
